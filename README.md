@@ -10,6 +10,7 @@ A Frontend Boilerplate for nexts using the following features:
 * **SSR Styled Components**
 * **Eslint**
 * **Custom Made Components**
+* **Formik**
 
 ## Setup
 
