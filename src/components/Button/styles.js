@@ -11,7 +11,7 @@ export const Button = styled.button`
   color: #ffffff;
   margin-bottom: 1rem;
   &:hover {
-    cursor: pointer;
+    cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
     opacity: 0.75;
   }
 `
