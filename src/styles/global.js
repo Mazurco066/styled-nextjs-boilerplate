@@ -33,8 +33,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: black;
-      border: 2px solid black;
+      background-color: ${theme.colors.primary};
+      border: 2px solid ${theme.colors.primary};
     }
 
     &::selection {

@@ -5,6 +5,8 @@ import styled from 'styled-components'
 export const Button = styled.button`
   height: 40px;
   border-radius: 8px;
+  font-size: 1rem;
+  text-transform: uppercase;
   outline: none;
   border: none;
   background-color: ${props => props.theme.colors[props.status]};
