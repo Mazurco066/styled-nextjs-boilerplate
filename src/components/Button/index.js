@@ -5,7 +5,7 @@ import * as S from './styles'
 // Component
 export default function Button({
   disabled,
-  icon,
+  icon: Icon,
   text,
   status,
   type,
@@ -15,7 +15,7 @@ export default function Button({
   // Jsx
   return (
     <S.Button type={type} status={status} disabled={disabled} {...rest}>
-      {text}
+      {Icon && <Icon />} {text}
     </S.Button>
   )
 }

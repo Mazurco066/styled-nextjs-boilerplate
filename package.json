@@ -28,5 +28,10 @@
     "webpack": "^5.28.0",
     "webpack-subresource-integrity": "^1.5.2",
     "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0"
   }
 }

@@ -6,7 +6,7 @@ import { useFormik } from 'formik'
 
 // Dynamic components
 //const DynamicComponent = dynamic(() => import('../components/hello'))
-import { Button, Input } from '../../components'
+import { Button, Input } from 'components'
 
 // Styles
 import { Container, Row, Column } from '../../styles/global'
@@ -14,6 +14,7 @@ import * as S from './styles'
 
 // Component
 export default function Home() {
+
   // Hooks
   const [revealPassword, setRevealPassword] = useState(false)
   const formik = useFormik({
@@ -65,7 +66,11 @@ export default function Home() {
               addonRight={() => (revealPassword ? <FaEyeSlash /> : <FaEye />)}
               onAddonRightClick={() => setRevealPassword(!revealPassword)}
             />
-            <Button status="primary" type="submit" text="Submit" />
+            <Button
+              status="primary"
+              type="submit"
+              text="Submit"
+            />
           </Column>
         </Row>
       </form>

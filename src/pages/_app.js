@@ -1,9 +1,10 @@
 // Next dependencies
 import Head from 'next/head'
+import PropTypes from 'prop-types'
 
 // App styles
 import { ThemeProvider } from 'styled-components'
-import GlobalStyles, { theme } from '../styles/global'
+import GlobalStyles, { theme } from 'styles/global'
 
 // App Function
 export default function App({ Component, pageProps }) {
@@ -25,4 +26,10 @@ export default function App({ Component, pageProps }) {
       </ThemeProvider>
     </>
   )
+}
+
+// Prop Types
+App.propTypes = {
+  Component: PropTypes.func,
+  pageProps: PropTypes.object
 }
