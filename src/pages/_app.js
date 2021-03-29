@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 import { ToastContainer } from 'react-toastify'
 
 // App styles
-import { ThemeProvider } from 'styled-components'
-import GlobalStyles, { theme } from 'styles/global'
+import GlobalStyles from 'styles/global'
 import 'react-toastify/dist/ReactToastify.css'
 
 // App Function
@@ -21,12 +20,8 @@ export default function App({ Component, pageProps }) {
         <meta name="description" content="Nextjs styled boilerplate" />
       </Head>
       <GlobalStyles />
-      <ThemeProvider theme={theme}>
-        <main id="layout">
-          <Component {...pageProps} />
-          <ToastContainer position="bottom-right"/>
-        </main>
-      </ThemeProvider>
+      <Component {...pageProps} />
+      <ToastContainer position="bottom-right"/>
     </>
   )
 }

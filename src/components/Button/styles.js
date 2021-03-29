@@ -9,8 +9,8 @@ export const Button = styled.button`
   text-transform: uppercase;
   outline: none;
   border: none;
-  background-color: ${props => props.theme.colors[props.status]};
-  color: #ffffff;
+  background-color: ${props => `var(--${props.status})`};
+  color: var(--white);
   margin-bottom: 1rem;
   &:hover {
     cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};

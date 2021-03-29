@@ -29,7 +29,7 @@ export const AddonLeft = styled.span`
   top: 0;
   bottom: 0;
   font-size: 1rem;
-  color: ${props => props.theme.colors.primary};
+  color: var(--primary);
   transition: all 0.3s;
   cursor: pointer;
 `
@@ -44,7 +44,7 @@ export const AddonRight = styled.span`
   top: 0;
   bottom: 0;
   font-size: 1rem;
-  color: ${props => props.theme.colors.primary};
+  color: var(--primary);
   transition: all 0.3s;
   cursor: pointer;
 `

@@ -1,94 +1,40 @@
 // Dependencies
 import styled, { createGlobalStyle } from 'styled-components'
 
-// Theme colors
-export const theme = {
-  id: 'T_Def',
-  name: 'default',
-  colors: {
-    primary: '#bb86fc',
-    secondary: '#03dac5',
-  }
-}
-
 // Styles
 const GlobalStyles = createGlobalStyle`
-  // Page parent container
-  html, body, #__next, #layout {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    scroll-behavior: smooth;
+  // Theme colors
+  :root {
+    --primary: #e20e8d;
+    --secondary: #030518;
 
-    // Scrollbar custom style
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba($color: #000000, $alpha: 0.5);
-      -webkit-box-shadow: inset 0 0 6px rgba($color: #000000, $alpha: 0.5);
-      background-color: #F5F5F5;
-    }
+    --highlight: #e20e8d;
+    --background: #030518;
+    --white: #eeeeee;
 
-    &::-webkit-scrollbar {
-      width: 6px;
-      background-color: #F5F5F5;
-    }
+    --container: 100rem;
 
-    &::-webkit-scrollbar-thumb {
-      background-color: ${theme.colors.primary};
-      border: 2px solid ${theme.colors.primary};
-    }
-
-    &::selection {
-      color: #212121;
-      z-index: 2;
-    }
+    --small: 1.5rem;
+    --medium: 3rem;
+    --large: 5rem;
   }
 
-  // Reset default html tags css
-  body {
-    overflow-y: auto;
-    background-color: #212121;
-  }
-
-  img {
-    width: 100%;
-    object-fit: cover;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  p, h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    color: #ffffff;
-  }
-
+  // All tags
   * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
   }
 
-  input, input:after, input:before, textarea {
-    -webkit-user-select: initial;
-    -moz-user-select: initial;
-    -ms-user-select: initial;
-    user-select: initial;
-    outline: none;
-  }
-
-  .sc-custom-input {
-    width: 100%;
+  // Page parent container
+  html, body, #__next {
     height: 100%;
-    border-color: #212121;
-    color: #212121;
-    border-radius: 8px;
-    font-size: 1rem;
-    &:focus {
-      border-color: ${theme.colors.primary};
-    }
-    transition: all 0.3s;
+    background-color: var(--background);
+    color: var(--white);
+    scroll-behavior: smooth;
   }
 
+  // Font config
   @font-face {
     font-family: "Oswald";
     src: url("./font/Oswald-Regular.ttf") format("opentype");
@@ -115,7 +61,9 @@ const GlobalStyles = createGlobalStyle`
     src: url("./font/Oswald-Medium.ttf") format("opentype");
   }
 
+  // Reset default html tags css
   body {
+    overflow-y: auto;
     font-family: "Oswald";
   }
 
@@ -126,14 +74,47 @@ const GlobalStyles = createGlobalStyle`
   h1, h2, h3, h4, h5, h6{
     font-family: "Oswald ExtraBold";
   }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  // Input styles 
+  input, input:after, input:before, textarea {
+    -webkit-user-select: initial;
+    -moz-user-select: initial;
+    -ms-user-select: initial;
+    user-select: initial;
+    outline: none;
+  }
+
+  .sc-custom-input {
+    width: 100%;
+    height: 100%;
+    border-color: #212121;
+    color: #212121;
+    border-radius: 8px;
+    font-size: 1rem;
+    &:focus {
+      border-color: var(--primary);
+    }
+    transition: all 0.3s;
+  }  
 `
 
+// Calc column width func
 const getColumnWidth = (span) => {
   if (!span) return
   const width = span / 12 * 100
   return `width: ${width}%`
 }
 
+// Container Styles
 export const Container = styled.div`
   width: 100%;
   max-width: 100%;
@@ -147,6 +128,7 @@ export const Container = styled.div`
   @media (min-width: 1280px) { max-width: 1200px; }
 `;
 
+// Row Styles
 export const Row = styled.div`
   position: relative;
   width: 100%;
@@ -160,6 +142,7 @@ export const Row = styled.div`
   }
 `
 
+// Column Styles
 export const Column = styled.div`
   position: relative;
   display: flex;
@@ -178,4 +161,5 @@ export const Column = styled.div`
   }
 `
 
+// Exporting global styles
 export default GlobalStyles
