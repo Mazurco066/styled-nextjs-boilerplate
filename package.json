@@ -29,6 +29,7 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.23.0",
     "eslint-plugin-react": "^7.23.1",
     "eslint-plugin-react-hooks": "^4.2.0"

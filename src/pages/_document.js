@@ -1,48 +1,36 @@
 // Dependencies
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import Document, { 
-  Html,
-  Head,
-  Main,
-  NextScript
-} from 'next/document'
 
-// Overwrite nextjs default document
+// Overwrite Document
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+
+  // Apply styles when get props
+  static getInitialProps({ renderPage }) {
     
-    // Config styled components for SSR
+    // Step 1: Create an instance of ServerStyleSheet
     const sheet = new ServerStyleSheet()
-    const originalRenderPage = ctx.renderPage
 
-    try {
+    // Step 2: Retrieve styles from components in the page
+    const page = renderPage((App) => (props) =>
+      sheet.collectStyles(<App {...props} />)
+    )
 
-      // Enhancing render page with styled components
-      ctx.renderPage = () => originalRenderPage({
-        enhanceApp: (App) => (props) => sheet.collectStyles(
-          <App {...props} />
-        )
-      })
+    // Step 3: Extract the styles as <style> tags
+    const styleTags = sheet.getStyleElement()
 
-      // Return enhanced page
-      const initialProps = await Document.getInitialProps(ctx)
-      return { ...initialProps, styles: (
-        <>
-          {initialProps.styles}
-          {sheet.getStyleElement()}
-        </>
-      )}
-
-    } finally {
-      sheet.seal()
-    }
+    // Step 4: Pass styleTags as a prop
+    return { ...page, styleTags }
   }
 
-  // Render page
+  // Render method
   render() {
     return (
       <Html lang="pt-BR">
-        <Head />
+        <Head>
+          {/* Step 5: Output the styles in the head  */}
+          {this.props.styleTags}
+        </Head>
         <body>
           <Main />
           <NextScript />
@@ -50,4 +38,4 @@ export default class MyDocument extends Document {
       </Html>
     )
   }
-} 
+}
