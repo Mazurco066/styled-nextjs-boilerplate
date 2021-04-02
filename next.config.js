@@ -19,9 +19,6 @@ module.exports = withPWA({
         headers: createSecureHeaders({
            contentSecurityPolicy: {
             directives: {
-              //defaultSrc: ["'self'"],
-              styleSrc: ["'self'", "'unsafe-inline'"],
-              imgSrc: ["'self'", "https://*"],
               baseUri: 'self',
               formAction: 'self',
               frameAncestors: true
